@@ -860,9 +860,9 @@ function initApp(){
   const su=document.getElementById('settings-uname');if(su){su.textContent=currentUser.name;}
   const sr=document.getElementById('settings-role');if(sr){sr.textContent=currentUser.role==='admin'?'Administrator':'Viewer';}
   const hr=new Date().getHours();
-  const gr=hr<12?'Selamat pagi':'hr<17?Selamat siang':'Selamat malam';
+  const greet=hr<12?'Selamat pagi':hr<17?'Selamat siang':'Selamat malam';
   const dg=document.getElementById('dash-greeting');
-  if(dg) dg.textContent=(hr<12?'Selamat pagi, ':'hr<17?Selamat siang, ':'Selamat malam, ')+currentUser.name+' 👋';
+  if(dg) dg.textContent=greet+', '+currentUser.name+' 👋';
   renderSidebar();renderDash();loadGsCfg();loadDB();renderGsCode();
   const t=localStorage.getItem('pm_theme')||'dark';
   document.documentElement.dataset.theme=t;updateThemeUI();
