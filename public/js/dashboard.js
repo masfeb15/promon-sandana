@@ -103,7 +103,11 @@ function renderTable(projects) {
       <tbody>
         ${projects.map(p => `
           <tr>
-            <td>${p.nama_proyek}</td>
+            <td>
+            <a href="project.html?id=${p.id}">
+            ${p.nama_proyek}
+            </a>
+            </td>
             <td>${p.area}</td>
             <td>${p.pct_progress}%</td>
             <td>${p.delay || 0}</td>
