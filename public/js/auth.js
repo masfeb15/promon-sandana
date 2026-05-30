@@ -43,11 +43,14 @@ async function checkAuth() {
   }
 
   // Ambil data user dari tabel users
-  const { data: userData } = await sb
-    .from("users")
-    .select("*")
-    .eq("email", session.user.email)
-    .single();
+  const { data: profile, error } = await sb
+  .from("users")
+  .select("*")
+  .eq("id", user.id)
+  .single();
+
+console.log("PROFILE:", profile);
+console.log("ERROR:", error);
 
   if (!userData || !userData.is_active) {
     alert("Akun tidak aktif. Hubungi admin.");
