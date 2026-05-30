@@ -22,9 +22,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
 
       if (error) {
-        document.getElementById("loginError").innerText =
-          "Login gagal. Periksa email atau password.";
-      } else {
+  console.error(error);
+  alert(error.message);
+  return;
+} else {
         window.location.href = "dashboard.html";
       }
     });
