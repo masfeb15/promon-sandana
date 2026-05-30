@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PROMON - Detail Proyek</title>
 
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/kurvaS.js"></script>
+  <script src="js/projectDetail.js" defer></script>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="menu">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+    <div id="userInfo"></div>
+  </div>
+
+  <div class="container">
+
+    <div id="projectContainer">
+
+      <div class="card">
+        <h2 id="projectName"></h2>
+        <p id="projectInfo"></p>
+      </div>
+
+      <div class="card">
+        <canvas id="kurvaChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Input Progress Mingguan</h3>
+        <input type="number" id="progressInput" min="0" max="100" placeholder="Contoh: 45">
+        <button onclick="saveProgress()">Simpan</button>
+      </div>
+
+      <div class="card">
+        <h3>Riwayat Progress</h3>
+        <div id="progressTable"></div>
+      </div>
+
+      <div class="card">
+        <button onclick="exportPDF()">Export PDF Proyek</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
